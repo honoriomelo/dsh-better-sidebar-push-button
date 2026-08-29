@@ -1,0 +1,13 @@
+# dsh-better-sidebar-push-button bundle patch: inserts the plugin row into the
+# web profile roster. Installed with
+#   dsh plugin --profile web add link:/path/to/dsh-better-sidebar-push-button
+#
+# The row is a bare plugin by entry id: the node half (exports ".") runs in
+# the host process and registers the two `git-push-button/*` HTTP routes; the
+# `dsh.client` declaration in package.json makes the browser half
+# (exports "./client", served at /plugins/ui-dsh-better-sidebar-push-button/client.js)
+# load in the web GUI and inject the Push button below the dsh-better-sidebar
+# commit input without modifying dsh-better-sidebar source.
+- insert:
+    - id: ui-dsh-better-sidebar-push-button
+      name: dsh-better-sidebar-push-button
